@@ -7,7 +7,7 @@ https://en.wikipedia.org/wiki/Endianness
 通信单元(bit, byte, word, double word) **transmission sequence**
 
  "Gulliver's Travels"《格利佛游记》，该小说在描述Gulliver畅游小人国时碰到了如下的一个场景：
- 
+
 | 水煮蛋该从哪端开始剥   | 对立队伍                              | 字节 传送顺序 |
 | ---------------------- | ------------------------------------- | ------------- |
 | 大的一端（Big-End）    | 从大的一端剥开的人 称作Big-Endians    | 从 高位       |
@@ -326,17 +326,33 @@ Swizzle is under 2-bits control, Each memory client has own swizzle.
 
 ![1553762970321](assets/1553762970321.png)
 
-*Error: graph last byte index(legend) should be: byte 0,  byte 1,  byte 2,  byte 3
+>  Boss opinion: typo error
+>
+> - Short word => Little word (little endian 32-bit word)   
+> - BE 16-bit short integer: byte order => just reverse of two bytes of LE 16-bit integer
 
-Grpah result => 1-0-3-2 => short word (16 bits)
-
-Endian - swizzle byte format
-selX - serial No.
-
-> Little - **LE**: 3-2-1-0
-> Big Byte - ?
-> Big Word - **BE**: 0-1-2-3
-> Short Word - **ME**：2-3-0-1 or 1-0-3-2
+> My opinion:
+>
+> *Error: graph last byte index(legend) should be: byte 0,  byte 1,  byte 2,  byte 3
+>
+> Grpah result => 1-0-3-2 => short word (16 bits)
+>
+> Endian - swizzle byte format
+> selX - serial No.
+>
+> > Little - **LE**: 3-2-1-0
+> > Big Byte - ?
+> > Big Word - **BE**: 0-1-2-3
+> > Short Word - **ME**：2-3-0-1 or 1-0-3-2
+>
+> | Endian           | Byte sel3 | Byte sel2 | Byte sel1 | Byte sel0 |
+> | ---------------- | --------- | --------- | --------- | --------- |
+> | Little 16bit     | 3         | 2         | 1         | 0         |
+> | Little 32bit     | 3         | 2         | 1         | 0         |
+> | Big Byte - 16bit | 2         | 3         | 0         | 1         |
+> | Big Word - 32bit | 0         | 1         | 2         | 3         |
+>
+> 
 
 ------
 
