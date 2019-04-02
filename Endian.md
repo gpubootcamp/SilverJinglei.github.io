@@ -7,6 +7,7 @@ https://en.wikipedia.org/wiki/Endianness
 通信单元(bit, byte, word, double word) **transmission sequence**
 
  "Gulliver's Travels"《格利佛游记》，该小说在描述Gulliver畅游小人国时碰到了如下的一个场景：
+ 
 | 水煮蛋该从哪端开始剥   | 对立队伍                              | 字节 传送顺序 |
 | ---------------------- | ------------------------------------- | ------------- |
 | 大的一端（Big-End）    | 从大的一端剥开的人 称作Big-Endians    | 从 高位       |
