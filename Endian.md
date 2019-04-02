@@ -2,7 +2,7 @@
 
 https://en.wikipedia.org/wiki/Endianness
 
-# Endian -> byte
+# Byte Endian
 
 通信单元(bit, byte, word, double word) **transmission sequence**
 
