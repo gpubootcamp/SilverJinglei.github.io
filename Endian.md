@@ -23,12 +23,20 @@ SWAP_BYTES (the ordering of the bytes in memory)
 
 ![1554261466835](assets/1554261466835.png)
 
-| Bytes Type  | GL Type  | bits    | Swap True               | False |
-| ----------- | -------- | ------- | ----------------------- | ----- |
-| Single byte | GLubyte  | 8-bits  | No need swap (just one) |       |
-| Short =>    | GLushort | 16-bits |                         |       |
-| Integer =>  | GLuint   | 32-bits |                         |       |
+| Bytes Type       | GL Type  | bits    | Swap                  |
+| ---------------- | -------- | ------- | --------------------- |
+| Single byte      | GLubyte  | 8-bits  | No need (just a byte) |
+| Short (BE=>LE)   | GLushort | 16-bits | Yes                   |
+| Integer (BE=>LE) | GLuint   | 32-bits | Yes                   |
 
+OpenGL app doesn’t share images with **other machines** 
+=> ignore the issue of byte ordering. 
+
+OpenGL app must render an OpenGL image that was created on a different machine and the two machines have different byte orders 
+=> byte ordering can be swapped using *SWAP_BYTES. 
+
+However, *SWAP_BYTES does not allow you to reorder elements 
+=> for example, to swap red and green
 
 # Byte Endian
 
@@ -62,7 +70,7 @@ Diff - CPU, Diff [Intger] in Memory
 | Format                    | Value                                   | Description                                                  |
 | ------------------------- | --------------------------------------- | ------------------------------------------------------------ |
 | integer                   | 123456789                               |                                                              |
-| binary                    | 0000 0111 0101 1011 1100 1101 0001 0101 | (从右向左，每4bit对齐，最左边(高位)不够用0补齐) <br />=> LSB - bit 0; MSB - bit 1 |
+| binary                    | 0000 0111 0101 1011 1100 1101 0001 0101 | 从右向左，每4bit对齐，最左边(高位)不够用0补齐                |
 | Hex (0x)                  | 0　7　5　B　C　D　1　5                  | 高位字节：0x07 ; 低位字节：0x15                              |
 | LE (int 16bit, int 32bit) | 0x15 0xCD 0x5B 0x07                     | 0-1-2-3，低位在前，人性                                      |
 | BE(int32) - follow Hex    | 0x07 0x5B 0xCD 0x15                     | [3-2-1-0]，高位在前，直观                                    |
