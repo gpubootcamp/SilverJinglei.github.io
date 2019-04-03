@@ -2,7 +2,6 @@
 
 https://en.wikipedia.org/wiki/Endianness
 
-<<<<<<< HEAD
 # OpenGL
 
 <<OpenGL Programming Guide 7th>> P349
@@ -30,8 +29,7 @@ SWAP_BYTES (the ordering of the bytes in memory)
 | Short =>    | GLushort | 16-bits |                         |       |
 | Integer =>  | GLuint   | 32-bits |                         |       |
 
-=======
->>>>>>> 5ab8f8b7ba4932cdfb686ae4b216af2b114f8e44
+
 # Byte Endian
 
 通信单元(bit, byte, word, double word) **transmission sequence**
