@@ -2,7 +2,34 @@
 
 https://en.wikipedia.org/wiki/Endianness
 
-# Endian -> byte
+# OpenGL
+
+<<OpenGL Programming Guide 7th>> P349
+
+Controlling Pixel-Storage Modes =>
+
+```c
+void glPixelStore{if}(GLenum pname, TYPE param);
+
+GLenum pname:
+GL_[UN]PACK_SWAP_BYTES
+GL_[UN]PACK_LSB_FIRST
+```
+
+SWAP_BYTES (the ordering of the bytes in memory)
+
+- FALSE - Default Value, follow OpenGL client (CPU Host)
+- True     - Reverse Bytes Order => Only Multibyte Elements => Apply to any size Element
+
+![1554261466835](assets/1554261466835.png)
+
+| Bytes Type  | GL Type  | bits    | Swap True               | False |
+| ----------- | -------- | ------- | ----------------------- | ----- |
+| Single byte | GLubyte  | 8-bits  | No need swap (just one) |       |
+| Short =>    | GLushort | 16-bits |                         |       |
+| Integer =>  | GLuint   | 32-bits |                         |       |
+
+# Byte Endian
 
 通信单元(bit, byte, word, double word) **transmission sequence**
 
@@ -12,8 +39,6 @@ https://en.wikipedia.org/wiki/Endianness
 | ---------------------- | ------------------------------------- | ------------- |
 | 大的一端（Big-End）    | 从大的一端剥开的人 称作Big-Endians    | 从 高位       |
 | 小的一端（Little-End） | 从小的一端剥开的人 称作Little-Endians | 从 低位       |
-# CPU
-
 Diff - CPU, Diff [Intger] in Memory
 
 |        | BE (big-endian)                                              | LE (little-endian)                                           |
@@ -28,25 +53,24 @@ Diff - CPU, Diff [Intger] in Memory
 
 | byte     | bit - 1          | byte - 8 bit    | word - 16 bit  | double word - 32 bit     |               |
 | -------- | ---------------- | --------------- | -------------- | ------------------------ | ------------- |
-| **POC**  | double - 8 bytes | float - 4 bytes | long - 4 bytes | int - 2 bytes            | char - 1 byte |
-| **0xFF** | 0xF - 4bit       | 0xFF - 8bit     | 0xFF = byte    | 0xFF => represent a byte |               |
+| **Type** | double - 8 bytes | float - 4 bytes | long - 4 bytes | int - 2 bytes            | char - 1 byte |
+| **0x**   | 0xF - 4bit       | 0xFF - 8bit     | 0xFF = byte    | 0xFF => represent a byte |               |
 
-# TCP/IP
+## Demos
 
-<https://www.cnblogs.com/atong/p/3425926.html>
+| Format                    | Value                                   | Description                                                  |
+| ------------------------- | --------------------------------------- | ------------------------------------------------------------ |
+| integer                   | 123456789                               |                                                              |
+| binary                    | 0000 0111 0101 1011 1100 1101 0001 0101 | (从右向左，每4bit对齐，最左边(高位)不够用0补齐) <br />=> LSB - bit 0; MSB - bit 1 |
+| Hex (0x)                  | 0　7　5　B　C　D　1　5                  | 高位字节：0x07 ; 低位字节：0x15                              |
+| LE (int 16bit, int 32bit) | 0x15 0xCD 0x5B 0x07                     | 0-1-2-3，低位在前，人性                                      |
+| BE(int32) - follow Hex    | 0x07 0x5B 0xCD 0x15                     | [3-2-1-0]，高位在前，直观                                    |
+| * BE(int16)               | 0xCD 0x15 0x07 0x5B                     | [1-0] [3-2]，16 bit is unit => first 2 bytes swap, last 2 bytes swap |
 
-|                          | Endian             | Description                                                  |
-| ------------------------ | ------------------ | ------------------------------------------------------------ |
-| Network Order 网络字节序 | BE                 | TCP/IP各层协议将字节序定义为Big Endian                       |
-| Host Order 主机字节序    | Follow CPU<br />LE | 2 Hosts through TCP/IP<br />Need Conversion => 主机序列(Little Endian) => 网络序(Big Endian) swap |
-|                          | BE                 | No need conversion                                           |
-| Cross OS                 | BE-LE              | Need:Protocal is BE, Os (windows) use LE                     |
+C# - as C/C++ follow cpu
+Java - JVM use BE
 
-
-
-**主机序（Host Order）- Little-Endian**。when two hosts 通过**TCP/IP**协议 => swap 进行主机序 （Little-Endian）和网络序（Big-Endian）的转换。
-
-CPU - GPU is same as Host - Client. Therefore, TCP commnication is similar with CPU Bus <=> GPU Memory
+BE | LE is dependent by CPU
 
 # Memory Sequence
 
@@ -76,22 +100,7 @@ CPU - GPU is same as Host - Client. Therefore, TCP commnication is similar with 
 | MSB  | Most Significant Bit - 最高有效位  | LMB - Left Most Bit (在一个n位二进制数字中n-1位) |
 | LSB  | Least Significant Bit - 最低有效位 | RMB - Right Most bit |
 
-### Samples
 
-| Format                    | Value                                   | Description                                                  |
-| ------------------------- | --------------------------------------- | ------------------------------------------------------------ |
-| integer                   | 123456789                               |                                                              |
-| binary                    | 0000 0111 0101 1011 1100 1101 0001 0101 | (从右向左，每4bit对齐，最左边(高位)不够用0补齐) <br />=> LSB - bit 0; MSB - bit 1 |
-| Hex (0x)                  | 0　7　5　B　C　D　1　5                  | 高位字节：0x07 ; 低位字节：0x15                              |
-| LE (int 16bit, int 32bit) | 0x15 0xCD 0x5B 0x07                     | 0-1-2-3，低位在前，人性                                      |
-| BE(int32) - follow Hex    | 0x07 0x5B 0xCD 0x15                     | [3-2-1-0]，高位在前，直观                                    |
-| * BE(int16)               | 0xCD 0x15 0x07 0x5B                     | [1-0] [3-2]，16 bit is unit => first 2 bytes swap, last 2 bytes swap |
-
-C# - as C/C++ follow cpu
-
-Java - JVM use BE
-
-BE | LE is dependent by CPU
 
 ## 高低 地址
 
@@ -271,13 +280,11 @@ BE 的测试：
 
 ![img](assets/1066187-20161218100825714-44937733.png)
 
-# Conversion
-
-## GPU
+# GPU Conversion
 
  *\<\<Notes on Endian Conversion.pdf>>*
 
-### GPU Assumptions
+## GPU Assumptions
 
 | GPU Memory Access                    | Generated by | Used by   | Swap                     |
 | ------------------------------------ | ------------ | --------- | ------------------------ |
@@ -294,7 +301,7 @@ BE 的测试：
 > - GPU inside: **Frame Buffer memory**<= is only produced and consumed by GPU
 > - CPU inside (no GPU)
 
-### Supported Formats and Conversions
+## Supported Formats and Conversions
 
 |                         | Gen \| Use       | Format               | Conversion (byte swap)                                       |
 | ----------------------- | ---------------- | -------------------- | ------------------------------------------------------------ |
@@ -313,7 +320,7 @@ BE 的测试：
 > Yes - Need Conversion
 > No  - No need
 
-### Conversion Mechanism by Swizzle => Similar Shader Swizzle
+## Conversion Mechanism by Swizzle => Similar Shader Swizzle
 
 Swizzle is under 2-bits control, Each memory client has own swizzle. 
 
@@ -356,7 +363,24 @@ Swizzle is under 2-bits control, Each memory client has own swizzle.
 
 ------
 
-## TCP/IP Conversion
+# CPU Conversion - TCP/IP
+
+<https://www.cnblogs.com/atong/p/3425926.html>
+
+|                          | Endian             | Description                                                  |
+| ------------------------ | ------------------ | ------------------------------------------------------------ |
+| Network Order 网络字节序 | BE                 | TCP/IP各层协议将字节序定义为Big Endian                       |
+| Host Order 主机字节序    | Follow CPU<br />LE | 2 Hosts through TCP/IP<br />Need Conversion => 主机序列(Little Endian) => 网络序(Big Endian) swap |
+|                          | BE                 | No need conversion                                           |
+| Cross OS                 | BE-LE              | Need:Protocal is BE, Os (windows) use LE                     |
+
+
+
+**主机序（Host Order）- Little-Endian**。when two hosts 通过**TCP/IP**协议 => swap 进行主机序 （Little-Endian）和网络序（Big-Endian）的转换。
+
+CPU - GPU is same as Host - Client. Therefore, TCP commnication is similar with CPU Bus <=> GPU Memory
+
+## Conversion
 
 ```c#
 using System;
