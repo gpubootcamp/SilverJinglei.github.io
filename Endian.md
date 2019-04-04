@@ -38,6 +38,24 @@ OpenGL app must render an OpenGL image that was created on a different machine a
 However, *SWAP_BYTES does not allow you to reorder elements 
 => for example, to swap red and green
 
+## Spec
+
+Pixel Storage Modes [8.4.1]
+
+```c
+void PixelStore{i f}(enum pname, T param);
+```
+
+pname: [Tables 8.1, 18.1] [UN]PACK_X where X maybe SWAP_BYTES, LSB_FIRST, ROW_LENGTH, SKIP_{IMAGES, PIXELS, ROWS}, ALIGNMENT, IMAGE_HEIGHT, COMPRESSED_BLOCK_WIDTH, COMPRESSED_BLOCK_{HEIGHT, DEPTH, SIZE}
+
+| Element Size  Modified Bit Ordering | Default Bit Ordering | Modified Bit Ordering         |
+| ----------------------------------- | -------------------- | ----------------------------- |
+| 8 bit                               | [7..0]               | [7..0]                        |
+| 16 bit                              | [15..0]              | [7..0] [15..8]                |
+| 32 bit                              | [31..0]              | [7..0] [15..8] [23..16] [31..24] |
+
+Table 8.4: Bit ordering modification of elements when UNPACK_SWAP_BYTES is enabled. These reorderings are defined only when GL data type ubyte has 8 bits, and then only for GL data types with 8, 16, or 32 bits. Bit 0 is the least significant.
+
 # Byte Endian
 
 通信单元(bit, byte, word, double word) **transmission sequence**
