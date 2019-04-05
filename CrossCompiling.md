@@ -18,6 +18,10 @@ CPU-Vendor-OS
 arm-linux, i386-pc-linux2.4.3
 sparc-sun-sunos4.1.4
 
+Toolchain
+
+Patch - cross compiler => stability => need patch
+
 # Requirement
 I need program in Embedded Board
 
@@ -28,3 +32,6 @@ The board hasn't enough memory and cpu => install IDE or compile to build
 Only one choice: compile and build in another Host (always x86 linux) => gen exe file
 
 # Implement
+Ubuntu install ARM-gcc toolchain: https://www.cnblogs.com/muyun/p/3370996.html
+
+Company always establish a standalone shared [Build Server]
