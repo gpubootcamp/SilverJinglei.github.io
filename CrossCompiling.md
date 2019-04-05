@@ -14,7 +14,9 @@ host - compiler platform, always x86 PC
 target - customer dev platform, always non-x86, host compiler => exe run in target
 prefix - cross compiler installation location
 
-xxx-xxx-xxxx platform description
+CPU-Vendor-OS
+arm-linux, i386-pc-linux2.4.3
+sparc-sun-sunos4.1.4
 
 # Requirement
 I need program in Embedded Board
