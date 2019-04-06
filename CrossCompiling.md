@@ -43,8 +43,10 @@ Only one choice: compile and build in another Host (always x86 linux) => gen exe
 # Implement
 Ubuntu install ARM-gcc toolchain: https://www.cnblogs.com/muyun/p/3370996.html
 
-## GDB - GNU symbolic debugger => cross compiler
+## GDB - (GNU Debugger) symbolic debugger => cross compiler
 https://www.cnblogs.com/lidabo/p/4499011.html
 
 
 Company always establish a standalone shared [Build Server]
+
+## GCC - GNU Compiler Collection
