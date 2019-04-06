@@ -1,6 +1,15 @@
 # Reference
-交叉编译  https://baike.baidu.com/item/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/10916911
-Toolchain https://baike.baidu.com/item/Toolchain/1318786
+cross compiler:
+https://baike.baidu.com/item/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/10916911
+https://en.wikipedia.org/wiki/Cross_compiler
+
+Toolchain:
+https://baike.baidu.com/item/Toolchain/1318786
+
+Establish Environment:
+https://www.cnblogs.com/louyihang-loves-baiyan/p/4171368.html
+https://www.cnblogs.com/lidabo/p/4499011.html
+
 
 # Terminology
 Native Compilation - compile and run in same cpu-os-host
@@ -33,5 +42,9 @@ Only one choice: compile and build in another Host (always x86 linux) => gen exe
 
 # Implement
 Ubuntu install ARM-gcc toolchain: https://www.cnblogs.com/muyun/p/3370996.html
+
+## GDB - GNU symbolic debugger => cross compiler
+https://www.cnblogs.com/lidabo/p/4499011.html
+
 
 Company always establish a standalone shared [Build Server]
