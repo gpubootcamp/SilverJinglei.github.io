@@ -6,4 +6,5 @@ This repository cover various resource
 - markdown
 - png
 
-# be careful => all resource should be official, never upload confidential
+# be careful => ::star:: never upload confidential
+
