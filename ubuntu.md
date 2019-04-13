@@ -19,3 +19,9 @@ sudo apt-get purge 一个带core的package，如果没有带core的package，则
 
 ## 清理残留数据
 dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P 
+
+# ShadowSocket-libev
+
+## Firefox
+install [Proxy SwitchyOmega] plugin
+set default protocal => SOCKS5
