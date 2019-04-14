@@ -19,6 +19,8 @@ c lang don’t has:
 ### Assembly Instance => Gen Instance
 
 >  Strategy Use Instance to create instance
+>
+>  Use instance => simulate inheritance
 
 #### Build
 
@@ -45,3 +47,21 @@ typedef struct child
 
 ```
 
+# Terminate Switch
+Marcro dispatch switch case
+
+```c
+switch(enum)
+{
+    case e1:
+    case e2:
+    default:
+}
+
+=>
+
+#define HandleEnum(x) x##_Func(x)
+
+HandleEnum(enum);
+
+```
