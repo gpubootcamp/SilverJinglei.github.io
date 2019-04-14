@@ -20,7 +20,7 @@ c lang don’t has:
 
 >  Strategy Use Instance to create instance
 >
->  Use instance => simulate inheritance
+>  Use instance gen strategy (Build, Factory Method, Prototype) => simulate inheritance
 
 #### Build
 
