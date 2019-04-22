@@ -22,3 +22,20 @@ Issue: Cannot access above token page <= cannot find the domain name
 > 127.0.0.1   bootcamp.sandcats.io
 > ```
 > 3. sudo /etc/init.d/networking restart
+
+Issue: Cannot load grain
+> https://docs.sandstorm.io/en/latest/administering/faq/#how-do-i-use-sandstorm-with-an-internal-ip-address
+```
+SERVER_USER=sandstorm
+PORT=6080
+MONGO_PORT=6081
+BIND_IP=0.0.0.0
+BASE_URL=http://192.168.6.114.xip.io:6080
+WILDCARD_HOST=*.192.168.6.114.xip.io:6080
+UPDATE_CHANNEL=dev
+ALLOW_DEV_ACCOUNTS=false
+SMTP_LISTEN_PORT=25
+#SANDCATS_BASE_DOMAIN=sandcats.io
+#HTTPS_PORT=443
+```
+> BASE_URL use http, non-https
