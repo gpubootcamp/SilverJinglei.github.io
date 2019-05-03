@@ -1,4 +1,7 @@
 # Resource:
+Give me 15 mininutes => change your view GDB
+https://www.youtube.com/watch?v=PorfLSr3DDI
+
 Tips:
 https://github.com/hellogcc/100-gdb-tips
 
@@ -12,6 +15,7 @@ https://www.cnblogs.com/wangqiguo/p/8905081.html
 
 ### GDB Dashboard
 ::start:: http://tuxdiary.com/2015/09/13/gdb-dashboard/
+
 https://github.com/cyrus-and/gdb-dashboard
 
 
