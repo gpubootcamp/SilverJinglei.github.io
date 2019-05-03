@@ -11,11 +11,11 @@ cmd tutorial:
 https://www.cnblogs.com/wangqiguo/p/8905081.html
 
 ### GDB Dashboard
-https://www.cnblogs.com/zengkefu/p/5562190.html
+::start:: http://tuxdiary.com/2015/09/13/gdb-dashboard/
 https://github.com/cyrus-and/gdb-dashboard
 
 
-
+# other
 https://www.youtube.com/watch?v=bWH-nL7v5F4
 
 Compile for debugging
