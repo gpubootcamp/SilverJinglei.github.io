@@ -23,13 +23,13 @@ https://www.cnblogs.com/wangqiguo/p/8905081.html
 2. start GDB in one terminal;
 3. open another terminal (e.g. tmux pane) and get its TTY:
 ```shell
-tty command
-(e.g. */dev/ttys001*, the name may be different for a variety of reasons);
+tty
+# (e.g. */dev/ttys001*, the name may be different for a variety of reasons);
 ```
 4. issue the command:
-```
+```shell
 dashboard -output */dev/ttys001* 
-// to redirect the dashboard output to the newly created terminal;
+# to redirect the dashboard output to the newly created terminal;
 ```
 5. debug as usual.
 
