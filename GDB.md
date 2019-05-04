@@ -59,6 +59,11 @@ gdbgui -r
 'fetch assembly' => show assembly code biside source code, 
 'reload file' => fresh occurs errors
 
+# GDB SERVER
+https://sourceware.org/gdb/onlinedocs/gdb/Server.html
+* 运行gdbserver以连接到远程GDB的系统也可以在 本地运行 GDB！ 
+* gdbserver比GDB本身要小得多, 它比所有GDB都更容易移植，更快地启动gdbserver
+* 实时系统开发代码，实时操作中涉及的权衡使得在另一个系统上进行尽可能多的开发工作变得更加方便，例如通过交叉编译。您可以使用gdbserver类似的选项进行调试。
 
 # other
 https://www.youtube.com/watch?v=bWH-nL7v5F4
