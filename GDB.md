@@ -10,6 +10,7 @@ https://blog.csdn.net/liigo/article/details/582231
 
 # GDB Dashboard
 > ::start:: http://tuxdiary.com/2015/09/13/gdb-dashboard/
+>
 > https://github.com/cyrus-and/gdb-dashboard
 
 > official github miss the detail
@@ -32,6 +33,31 @@ dashboard -output */dev/ttys001*
 # to redirect the dashboard output to the newly created terminal;
 ```
 5. debug as usual.
+
+# GDBGUI
+https://www.gdbgui.com/installation/
+
+benifit: scroll (gdb dashboard hasn't) => show 
+
+1. start gdbgui server in console
+```
+gdbgui -r
+# remote
+```
+2. click [load binary] button with the correct compiled binary(obj)
+
+3. set break point
+
+4. press 
+- 'r' run, 
+- 'c' continue, 
+- 'n' step over, 
+- 's' step into, 
+- 'u' step out
+
+5. click 'show filesystem' => tree code files, 
+'fetch assembly' => show assembly code biside source code, 
+'reload file' => fresh occurs errors
 
 
 # other
