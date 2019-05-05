@@ -5,7 +5,10 @@ One login to all Service
 # Setup
 ## install
 Follow offical instructions HTTPS approach or git .sh approach
+
 ## setup site
+
+> never use the tip domain name or suggestions. press 'none' directly
 ```shell
 sudo sandstorm admin-token
 
