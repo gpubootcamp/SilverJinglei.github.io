@@ -8,7 +8,19 @@ Follow offical instructions HTTPS approach or git .sh approach
 
 ## setup site
 
-> never use the tip domain name or suggestions. press 'none' directly
+> never use the tip domain name or suggestions. press 'none' => access admin page directly. config:
+```
+SERVER_USER=sandstorm
+PORT=6080
+MONGO_PORT=6081
+BIND_IP=0.0.0.0
+BASE_URL=http://GPUSW-ubuntu16-01:6080
+WILDCARD_HOST=*.GPUSW-ubuntu16-01:6080
+UPDATE_CHANNEL=dev
+ALLOW_DEV_ACCOUNTS=false
+SMTP_LISTEN_PORT=25
+```
+
 ```shell
 sudo sandstorm admin-token
 
