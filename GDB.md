@@ -8,6 +8,12 @@ https://github.com/hellogcc/100-gdb-tips
 10 minutes to Learn:
 https://blog.csdn.net/liigo/article/details/582231
 
+# GDB TUI
+> https://blog.csdn.net/xu415/article/details/19021759
+> http://www.deansys.com/doc/gdbDebugging/gdb_23.html
+Cool show source/assembly/register window with scroll!
+
+
 # GDB Dashboard
 > ::start:: http://tuxdiary.com/2015/09/13/gdb-dashboard/
 >
