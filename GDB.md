@@ -10,6 +10,7 @@ https://blog.csdn.net/liigo/article/details/582231
 
 # GDB TUI
 > https://blog.csdn.net/xu415/article/details/19021759
+> http://beej.us/guide/bggdb/
 > http://www.deansys.com/doc/gdbDebugging/gdb_23.html
 Cool show source/assembly/register window with scroll!
 
