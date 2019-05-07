@@ -26,6 +26,7 @@ Cool show source/assembly/register window with scroll!
 Steps:
 1. install tmux
 tmux => sperate output
+window rename: ctrl + B + <
 
 cmd tutorial:
 https://www.cnblogs.com/wangqiguo/p/8905081.html
