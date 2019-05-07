@@ -70,6 +70,8 @@ gdbgui -r
 'reload file' => fresh occurs errors
 
 # GDB SERVER
+> https://www.cnblogs.com/Dennis-mi/articles/5018745.html
+
 > https://blog.csdn.net/rebirthme/article/details/78874229
 
 > https://www.jb51.net/article/130573.htm
