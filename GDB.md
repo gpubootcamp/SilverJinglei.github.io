@@ -84,6 +84,24 @@ https://www.gdbgui.com/guides/#running-remotely
 * gdbserver比GDB本身要小得多, 它比所有GDB都更容易移植，更快地启动gdbserver
 * 实时系统开发代码，实时操作中涉及的权衡使得在另一个系统上进行尽可能多的开发工作变得更加方便，例如通过交叉编译。您可以使用gdbserver类似的选项进行调试。
 
+```
+# 1. Start server @target embedded board
+gdbserver 0.0.0.0:9000 gdb-sample
+
+# 2. Start gdb/gdbgui @Host pc
+gdb gdb-sample
+> or (gdb) file /home/jinglei/gdbTest/gdb-sample 
+
+# 3. Connect gdbserver
+# gdb
+(gdb) target remote 192.168.0.178:9000
+
+# gdbgui
+select [connect server] button: 192.168.0.178:9000
+
+# 4. Done
+```
+
 # CrossGDB & GDBserver
 https://www.gdbgui.com/guides/#running-remotely
 
