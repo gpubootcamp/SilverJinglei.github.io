@@ -13,6 +13,45 @@ c lang don’t has:
 2. template <T>
 3. member function
 
+# Exception
+C++ try... captch(exception)... finally
+
+## C Goto
+Sample form kernel driver
+```c
+
+struct something * item1;
+struct somethingelse * item2;
+int struct_ok;
+
+void my_cleanup()
+{
+    if (item1)      release_thing(item1);
+    if (item2)      release_thing2(item2);
+    if (stuff_ok)   unregister_stuff();
+    return;
+}        
+
+init __init my_init()
+{
+    int err = -ENOMEM;
+    
+    item1 = allocate_thing(arguments);
+    item2 = allocate_thing2(arguments2);
+    if(!item1 || !item2)    goto
+    
+    err = register_stuff(item1, item2);
+    if(!err)    stuff_ok = 1;
+    else        goto fail;
+    return 0;
+    
+  fail:
+    my_cleanup();
+    return err;
+}
+
+```
+
 ## GOF
 
 > GOF use class (type) and object (instance) => play Pattern
