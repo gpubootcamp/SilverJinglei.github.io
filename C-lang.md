@@ -133,9 +133,15 @@ int main() {
 
 # Inheritance & Polymorphism
 
-https://stackoverflow.com/questions/6304794/oop-and-interfaces-in-c
+# one file one class
+- static function() is private
+- NameRule gco_XXX() gco_ is class (file) name
 
-## Inheritance
+Read book privilleage of field and function in .h .c ?
+
+## struct => class (interface)
+
+>https://stackoverflow.com/questions/6304794/oop-and-interfaces-in-c
 
 Has a => (replace) is a
 
